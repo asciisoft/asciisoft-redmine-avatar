@@ -1,0 +1,14 @@
+ko:
+  asciisoft_avatar_title: 프로필 사진
+  asciisoft_avatar_change: 프로필 사진 변경
+  asciisoft_avatar_have: 현재 프로필 사진이 설정되어 있습니다.
+  asciisoft_avatar_none: 프로필 사진이 없어 기본 아이콘이 표시됩니다.
+  asciisoft_avatar_choose: 사진 선택
+  asciisoft_avatar_hint: PNG, JPG, GIF, WebP 이미지를 고르면 256×256 정사각형으로 맞춰 저장합니다.
+  asciisoft_avatar_crop: 사진 자르기 영역
+  asciisoft_avatar_zoom: 확대
+  asciisoft_avatar_drag: 사진을 끌어서 위치를 맞추고, 확대 막대로 크기를 조절하세요.
+  asciisoft_avatar_saved: 프로필 사진을 저장했습니다.
+  asciisoft_avatar_deleted: 프로필 사진을 삭제했습니다.
+  asciisoft_avatar_invalid: 사진을 저장하지 못했습니다. 2MB 이하의 PNG 또는 JPG 이미지인지 확인하세요.
+  asciisoft_avatar_pick_first: 먼저 사진을 선택하세요.

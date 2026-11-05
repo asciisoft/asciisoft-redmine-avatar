@@ -1,0 +1,11 @@
+/* ASCII SOFT Redmine Avatar */
+img.asciisoft-avatar { border-radius: 50%; object-fit: cover; vertical-align: middle; background: #eef1f6; }
+.avatar.asciisoft-avatar.s128 { block-size: 128px; inline-size: 128px; }
+.asciisoft-avatar-current { display: flex; gap: 16px; align-items: center; margin-block: 4px 16px; }
+.asciisoft-avatar-current .info { margin-block: 4px 8px; }
+#asciisoft-avatar-cropper { margin-block: 8px; }
+#asciisoft-avatar-canvas { inline-size: 256px; block-size: 256px; border-radius: 50%; cursor: grab; touch-action: none;
+  background: #fff; box-shadow: 0 0 0 1px #c5ccd8; }
+#asciisoft-avatar-canvas:active { cursor: grabbing; }
+#asciisoft-avatar-zoom { inline-size: 256px; vertical-align: middle; }
+.asciisoft-avatar-zoom-row label { margin-inline-end: 8px; }

@@ -1,0 +1,14 @@
+en:
+  asciisoft_avatar_title: Profile photo
+  asciisoft_avatar_change: Change profile photo
+  asciisoft_avatar_have: A profile photo is set.
+  asciisoft_avatar_none: No profile photo. The default icon is shown.
+  asciisoft_avatar_choose: Choose a photo
+  asciisoft_avatar_hint: PNG, JPG, GIF or WebP images are cropped to a 256x256 square.
+  asciisoft_avatar_crop: Crop area
+  asciisoft_avatar_zoom: Zoom
+  asciisoft_avatar_drag: Drag the photo to position it and use the slider to zoom.
+  asciisoft_avatar_saved: Profile photo saved.
+  asciisoft_avatar_deleted: Profile photo deleted.
+  asciisoft_avatar_invalid: The photo could not be saved. Use a PNG or JPG image of 2 MB or less.
+  asciisoft_avatar_pick_first: Choose a photo first.
