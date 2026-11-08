@@ -4,8 +4,7 @@ module AsciisoftRedmineAvatar
       stylesheet_link_tag('asciisoft_avatar', plugin: 'asciisoft_redmine_avatar')
     end
 
-    def view_my_account_contextual(_context = {})
-      link_to(l(:asciisoft_avatar_title), asciisoft_my_avatar_path)
-    end
+    # 내 계정 > "정보" 영역 아래에 프로필 사진 영역 (훅 자리는 정보 영역 안이라 스크립트로 바로 아래로 옮긴다)
+    render_on :view_my_account, partial: 'asciisoft_avatars/account_section'
   end
 end

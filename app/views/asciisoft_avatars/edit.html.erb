@@ -16,8 +16,9 @@
       <strong><%= @user.name %></strong>
       <p class="info"><%= @has_avatar ? l(:asciisoft_avatar_have) : l(:asciisoft_avatar_none) %></p>
       <% if @has_avatar %>
-        <%= button_to l(:button_delete), asciisoft_my_avatar_path, method: :delete,
-              data: { confirm: l(:text_are_you_sure) }, class: 'asciisoft-avatar-delete' %>
+        <%= button_to l(:button_delete), asciisoft_my_avatar_path, method: :delete, class: 'asciisoft-avatar-delete',
+              form: { id: 'asciisoft-avatar-delete-form',
+                      data: { confirm_text: l(:asciisoft_avatar_delete_confirm), ok: l(:button_delete), cancel: l(:button_cancel) } } %>
       <% end %>
     </div>
   </div>
@@ -30,7 +31,14 @@
       <em class="info"><%= l(:asciisoft_avatar_hint) %></em>
     </p>
     <div id="asciisoft-avatar-cropper" hidden>
-      <canvas id="asciisoft-avatar-canvas" width="256" height="256" aria-label="<%= l(:asciisoft_avatar_crop) %>"></canvas>
+      <div class="asciisoft-avatar-crop-row">
+        <canvas id="asciisoft-avatar-canvas" width="256" height="256" aria-label="<%= l(:asciisoft_avatar_crop) %>"></canvas>
+        <div class="asciisoft-avatar-previews">
+          <strong><%= l(:asciisoft_avatar_preview) %></strong>
+          <canvas class="asciisoft-avatar-mini" width="64" height="64"></canvas>
+          <canvas class="asciisoft-avatar-mini" width="24" height="24"></canvas>
+        </div>
+      </div>
       <p class="asciisoft-avatar-zoom-row">
         <label for="asciisoft-avatar-zoom"><%= l(:asciisoft_avatar_zoom) %></label>
         <input type="range" id="asciisoft-avatar-zoom" min="1" max="4" step="0.01" value="1">

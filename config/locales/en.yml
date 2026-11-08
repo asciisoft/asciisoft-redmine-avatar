@@ -12,3 +12,5 @@ en:
   asciisoft_avatar_deleted: Profile photo deleted.
   asciisoft_avatar_invalid: The photo could not be saved. Use a PNG or JPG image of 2 MB or less.
   asciisoft_avatar_pick_first: Choose a photo first.
+  asciisoft_avatar_delete_confirm: "Delete the profile photo?"
+  asciisoft_avatar_preview: "Preview"

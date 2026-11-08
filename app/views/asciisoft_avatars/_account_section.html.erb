@@ -1,0 +1,18 @@
+<% has_avatar = AsciisoftRedmineAvatar::Storage.find(user).present? %>
+<fieldset class="box asciisoft-avatar-account" id="asciisoft-avatar-account">
+  <legend><%= l(:asciisoft_avatar_title) %></legend>
+  <div class="asciisoft-avatar-account-row">
+    <%= link_to avatar(user, size: 50), asciisoft_my_avatar_path, class: 'asciisoft-avatar-account-photo', title: l(:asciisoft_avatar_change) %>
+    <div>
+      <p class="info"><%= has_avatar ? l(:asciisoft_avatar_have) : l(:asciisoft_avatar_none) %></p>
+      <%= link_to l(:asciisoft_avatar_change), asciisoft_my_avatar_path, class: 'asciisoft-avatar-change' %>
+    </div>
+  </div>
+</fieldset>
+<%= javascript_tag do %>
+  (function () {
+    var box = document.getElementById('asciisoft-avatar-account');
+    var info = box && box.parentNode && box.parentNode.closest('fieldset');
+    if (info && info.parentNode) info.parentNode.insertBefore(box, info.nextSibling);
+  })();
+<% end %>
