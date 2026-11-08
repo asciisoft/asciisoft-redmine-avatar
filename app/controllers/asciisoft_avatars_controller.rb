@@ -1,6 +1,6 @@
 class AsciisoftAvatarsController < ApplicationController
   before_action :require_login, except: :show
-  before_action :find_current_user, except: :show
+  before_action :load_avatar_owner, except: :show
 
   # GET /asciisoft_avatars/:id  사진 이미지
   # 로그인이 필요한 사이트라면 ApplicationController 의 check_if_login_required 가 먼저 막는다
@@ -47,7 +47,7 @@ class AsciisoftAvatarsController < ApplicationController
 
   private
 
-  def find_current_user
+  def load_avatar_owner
     @user = User.current
   end
 end

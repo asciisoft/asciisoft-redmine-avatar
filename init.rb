@@ -6,7 +6,7 @@ Redmine::Plugin.register :asciisoft_redmine_avatar do
   name 'ASCII SOFT 프로필 사진'
   author 'ASCII SOFT'
   description '내 계정에서 프로필 사진을 올리고, 사용자 아이콘 자리에 표시합니다'
-  version '1.0.0'
+  version '1.0.1'
   url 'https://asciisoft.com'
   requires_redmine version_or_higher: '7.0.0'
 end

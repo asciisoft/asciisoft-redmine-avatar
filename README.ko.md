@@ -1,4 +1,4 @@
-# asciisoft_redmine_avatar (v1.0.0)
+# asciisoft_redmine_avatar (v1.0.1)
 
 [English](README.md)
 
