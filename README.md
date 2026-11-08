@@ -1,28 +1,55 @@
 # asciisoft_redmine_avatar (v1.0.0)
-Redmine 7.0 에서 프로필 사진을 올리고, 사용자 아이콘 자리에 표시하는 플러그인입니다.
 
-## 기능
-- 내 계정 아이콘 또는 "프로필 사진" 링크 → /my/avatar 에서 사진 선택, 끌기·확대로 자르기, 저장, 삭제
-- 256x256 정사각형 JPEG 로 저장, 화면에는 원형으로 표시 (모양 변경: assets/stylesheets/asciisoft_avatar.css 의 border-radius)
-- 사진이 없는 사용자는 Redmine 기본 아이콘(이니셜 또는 Gravatar) 그대로
+[한국어](README.ko.md)
 
-## 저장 위치
-`files/asciisoft_avatars/<사용자ID>.jpg` (Redmine 첨부파일 저장소 안, Docker 의 files 볼륨과 백업에 함께 포함)
-- 파일 이름이 사용자 ID 라 다른 사용자와 겹치지 않음, 교체하면 이전 파일 삭제, 사용자 삭제 시 함께 삭제
-- DB 를 쓰지 않아 마이그레이션 없음
-- 특정 사용자의 사진을 관리자가 지우려면 해당 파일을 삭제
+A Redmine 7.0 plugin that lets users upload a profile photo and shows it wherever Redmine shows a user icon.
 
-## 설치 (Docker)
+## Features
+- My account → user icon or the "Profile photo" link → `/my/avatar`: choose a photo, crop it by dragging and zooming, save or delete
+- Saved as a 256x256 square JPEG and shown as a circle (change the shape with `border-radius` in `assets/stylesheets/asciisoft_avatar.css`)
+- Users without a photo keep Redmine's default icon (initials or Gravatar)
+
+## Requirements
+Redmine 7.0 or later
+
+## Installation (Docker)
+### With Git (recommended)
 ```bash
-cp -r asciisoft_redmine_avatar /srv/redmine/plugins/
+cd /srv/redmine/plugins
+git clone https://github.com/asciisoft/asciisoft-redmine-avatar.git asciisoft_redmine_avatar
 cd /srv/redmine && docker compose restart redmine
 ```
-삭제: 폴더를 지우고 재시작, 필요하면 files/asciisoft_avatars 폴더도 삭제
+- The repository name uses hyphens (`asciisoft-redmine-avatar`), but the folder must be
+  **`asciisoft_redmine_avatar` with underscores** because it has to match the plugin ID.
+  Always give the folder name at the end of `git clone`.
+- For a private repository, `git clone` needs GitHub authentication (token or SSH key).
 
-## 보안
-- 파일 앞부분(매직 넘버)으로 JPEG/PNG 만 허용, 2MB 이하, 파일 이름은 서버가 정함(사용자 입력 경로 없음)
-- 이미지 응답에 X-Content-Type-Options: nosniff, Content-Security-Policy(sandbox) 적용
-- 저장/삭제는 로그인 + CSRF 토큰 필수, 본인 사진만 변경 가능
-- 잠긴 사용자의 사진은 관리자 외에는 표시하지 않음
+Update:
+```bash
+cd /srv/redmine/plugins/asciisoft_redmine_avatar && git pull
+cd /srv/redmine && docker compose restart redmine
+```
 
-라이선스: GPL-2.0-or-later (LICENSE)
+### From a zip file
+```bash
+cd /srv/redmine/plugins && unzip ~/asciisoft_redmine_avatar.zip
+cd /srv/redmine && docker compose restart redmine
+```
+
+### After installation
+Check "ASCII SOFT 프로필 사진" in Administration > Plugins. No database migration is needed.
+Uninstall: delete the folder and restart. Delete `files/asciisoft_avatars` as well if you no longer need the photos.
+
+## Storage
+`files/asciisoft_avatars/<user ID>.jpg` (inside Redmine's attachment storage, so it is included in the Docker `files` volume and its backups)
+- File names are user IDs, so users never overwrite each other's photos
+- Uploading a new photo deletes the previous file; deleting a user deletes the photo too
+- To remove a user's photo as an administrator, delete that file
+
+## Security
+- Only JPEG/PNG are accepted, checked by the file's first bytes (magic number), up to 2 MB; the server chooses the file name
+- Image responses carry `X-Content-Type-Options: nosniff` and a `Content-Security-Policy` with `sandbox`
+- Saving and deleting require login and a CSRF token; users can change only their own photo
+- Photos of locked users are shown to administrators only
+
+License: GPL-2.0-or-later (LICENSE)
