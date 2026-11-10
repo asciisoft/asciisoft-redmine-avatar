@@ -33,3 +33,7 @@ img.asciisoft-avatar { border-radius: 50%; object-fit: cover; vertical-align: mi
 .asciisoft-avatar-dialog-ok { background: #b3261e; color: #fff; border: 1px solid #b3261e; }
 .asciisoft-avatar-dialog-ok:hover { background: #8c1d17; }
 .asciisoft-avatar-dialog-cancel { background: #fff; color: #333; border: 1px solid #c5ccd8; }
+
+/* 목록의 작성자·담당자 칸 사진: 테마의 이니셜 원(.as-av)과 같은 크기를 따르고, 테마가 없을 때만 아래 기본값(22px) 사용 */
+img.asciisoft-avatar-inline { border-radius: 50%; object-fit: cover; padding: 0; vertical-align: middle; }
+:where(img.asciisoft-avatar-inline) { inline-size: 22px; block-size: 22px; margin-inline-end: 6px; }

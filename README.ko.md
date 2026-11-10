@@ -1,4 +1,4 @@
-# asciisoft_redmine_avatar (v1.1.0)
+# asciisoft_redmine_avatar (v1.2.0)
 
 [English](README.md)
 
@@ -8,6 +8,7 @@ Redmine 7.0 에서 프로필 사진을 올리고, Redmine 이 사용자 아이�
 - 내 계정 → "정보" 영역 아래의 "프로필 사진" 영역(사진 + 변경) 또는 사용자 아이콘 → `/my/avatar` 에서 사진 선택, 끌기·확대로 자르기, 저장, 삭제
 - 256x256 정사각형 JPEG 로 저장, 화면에는 원형으로 표시 (모양 변경: `assets/stylesheets/asciisoft_avatar.css` 의 `border-radius`)
 - 사진이 없는 사용자는 Redmine 기본 아이콘(이니셜 또는 Gravatar) 그대로
+- 목록(요청 목록, 게시판 목록): 작성자·담당자 칸의 테마 이니셜 원을 같은 크기의 사진으로 바꿔 표시
 
 ## 요구 사항
 Redmine 7.0 이상

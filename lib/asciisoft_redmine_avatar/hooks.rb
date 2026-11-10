@@ -1,7 +1,8 @@
 module AsciisoftRedmineAvatar
   class Hooks < Redmine::Hook::ViewListener
     def view_layouts_base_html_head(_context = {})
-      stylesheet_link_tag('asciisoft_avatar', plugin: 'asciisoft_redmine_avatar')
+      stylesheet_link_tag('asciisoft_avatar', plugin: 'asciisoft_redmine_avatar') +
+        javascript_include_tag('asciisoft_avatar_lists', plugin: 'asciisoft_redmine_avatar', defer: true)
     end
 
     # 내 계정 > "정보" 영역 아래에 프로필 사진 영역 (훅 자리는 정보 영역 안이라 스크립트로 바로 아래로 옮긴다)

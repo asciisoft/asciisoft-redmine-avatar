@@ -1,4 +1,4 @@
-# asciisoft_redmine_avatar (v1.1.0)
+# asciisoft_redmine_avatar (v1.2.0)
 
 [한국어](README.ko.md)
 
@@ -8,6 +8,7 @@ A Redmine 7.0 plugin that lets users upload a profile photo and shows it whereve
 - My account → a "Profile photo" section below "Information" (photo + Change) or the user icon → `/my/avatar`: choose a photo, crop it by dragging and zooming, save or delete
 - Saved as a 256x256 square JPEG and shown as a circle (change the shape with `border-radius` in `assets/stylesheets/asciisoft_avatar.css`)
 - Users without a photo keep Redmine's default icon (initials or Gravatar)
+- Lists (issues, forums): in the author/assignee cells the photo replaces the theme's initials circle at the same size
 
 ## Requirements
 Redmine 7.0 or later

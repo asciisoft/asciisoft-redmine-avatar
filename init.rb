@@ -6,7 +6,7 @@ Redmine::Plugin.register :asciisoft_redmine_avatar do
   name 'ASCII SOFT 프로필 사진'
   author 'ASCII SOFT'
   description '내 계정에서 프로필 사진을 올리고, 사용자 아이콘 자리에 표시합니다'
-  version '1.1.0'
+  version '1.2.0'
   url 'https://asciisoft.com'
   requires_redmine version_or_higher: '7.0.0'
 end
@@ -14,6 +14,11 @@ end
 # 아바타 표시 교체 (init.rb 는 to_prepare 안에서 실행되므로 바로 적용한다)
 unless AvatarsHelper.ancestors.include?(AsciisoftRedmineAvatar::AvatarsHelperPatch)
   AvatarsHelper.prepend(AsciisoftRedmineAvatar::AvatarsHelperPatch)
+end
+
+# 목록의 사용자 링크에 사진 주소를 붙인다 (이니셜 원을 사진으로 바꾸는 데 사용)
+unless ApplicationHelper.ancestors.include?(AsciisoftRedmineAvatar::PrincipalLinkPatch)
+  ApplicationHelper.prepend(AsciisoftRedmineAvatar::PrincipalLinkPatch)
 end
 
 # 사용자를 삭제하면 사진 파일도 지운다
